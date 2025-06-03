@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DNSChecker</string>
+    <string name="author_info">Сиваков Тимофей Юрьевич, РИБО-02-23</string>
+    <string name="login_hint">Логин</string>
+    <string name="password_hint">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="search_hint">Введите домен</string>
+    <string name="search_button">Поиск</string>
+    <string name="share_button">Поделиться</string>
+    <string name="share_title">Поделиться списком доменов</string>
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="auth_failed">Ошибка авторизации</string>
+    <string name="auth_error">Ошибка при авторизации</string>
+    <string name="network_error">Сетевая ошибка</string>
+    <string name="enter_query">Введите запрос</string>
+    <string name="search_failed">Ошибка поиска</string>
+    <string name="no_domains_found">Домены не найдены</string>
+</resources>
