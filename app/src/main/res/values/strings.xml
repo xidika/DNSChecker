@@ -18,4 +18,10 @@
     <string name="ribo_02_23">RIBO-02-23</string>
     <string name="server_response">Ответ сервера</string>
     <string name="share_domain">Поделиться доменом</string>
+    <string name="server_response1">Ответ сервера:\n</string>
+    <string name="result_code">Код результата: %1$d\n</string>
+    <string name="variant">Вариант: %1$d\n</string>
+    <string name="app_title">Название приложения:\n%1$s\n</string>
+    <string name="task">Задание:\n%1$s\n</string>
+    <string name="additional_data">Дополнительная информация:\n%1$s</string>
 </resources>

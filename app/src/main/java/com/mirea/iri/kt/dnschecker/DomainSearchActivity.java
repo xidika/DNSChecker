@@ -36,9 +36,17 @@ public class DomainSearchActivity extends AppCompatActivity {
     }
 
     private void showAuthResponse() {
+        String message = getString(R.string.server_response) +
+                getString(R.string.result_code, authResponse.getResultCode()) +
+                getString(R.string.variant, authResponse.getVariant()) +
+                getString(R.string.app_title, authResponse.getTitle()) +
+                getString(R.string.task, authResponse.getTask());
+        if (authResponse.getData() != null) {
+            message = message + getString(R.string.additional_data, authResponse.getData());
+        }
         new AlertDialog.Builder(this)
                 .setTitle(R.string.server_response)
-                .setMessage(authResponse.toString())
+                .setMessage(message)
                 .setPositiveButton("OK", null)
                 .show();
     }

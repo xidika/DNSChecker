@@ -1,5 +1,7 @@
 package com.mirea.iri.kt.dnschecker;
 
+import android.content.Context;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -65,18 +67,34 @@ public class AuthResponse implements Serializable {
 
     @Override
     public String toString() {
-        if (data != null) {
-            return "Ответ сервера:\n" +
-                    "Код результата: " + resultCode + "\n" +
-                    "Вариант: " + variant + "\n" +
-                    "Название приложения:\n" + title + "\n" +
-                    "Задание:\n" + task + "\n" + "Дополнительная информация:\n" + data;
-        }else{
-            return "Ответ сервера:\n" +
-                    "Код результата: " + resultCode + "\n" +
-                    "Вариант: " + variant + "\n" +
-                    "Название приложения:\n" + title + "\n" +
-                    "Задание:\n" + task;
+        StringBuilder sb = new StringBuilder();
+        sb.append(AuthResponse.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("resultCode");
+        sb.append('=');
+        sb.append(((this.resultCode == null)?"<null>":this.resultCode));
+        sb.append(',');
+        sb.append("variant");
+        sb.append('=');
+        sb.append(((this.variant == null)?"<null>":this.variant));
+        sb.append(',');
+        sb.append("title");
+        sb.append('=');
+        sb.append(((this.title == null)?"<null>":this.title));
+        sb.append(',');
+        sb.append("task");
+        sb.append('=');
+        sb.append(((this.task == null)?"<null>":this.task));
+        sb.append(',');
+        sb.append("data");
+        sb.append('=');
+        sb.append(((this.data == null)?"<null>":this.data));
+        sb.append(',');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
+        } else {
+            sb.append(']');
         }
+        return sb.toString();
     }
+
 }

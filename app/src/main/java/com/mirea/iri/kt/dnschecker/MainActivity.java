@@ -2,6 +2,7 @@ package com.mirea.iri.kt.dnschecker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.mirea.iri.kt.dnschecker.databinding.ActivityMainBinding;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private static final String GROUP = "RIBO-02-23";
+    private static final String LOG_TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnLogin.setOnClickListener(v -> authenticateUser());
+        Log.i(LOG_TAG, "MainActivity created!");
     }
 
     private void authenticateUser() {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.fill_all_fields, Toast.LENGTH_SHORT).show();
             return;
         }
+        Log.d(LOG_TAG, "Attempting authentication for login: " + login);
         Auth service = DNSApp.getAuthService();
         Call<AuthResponse> call = service.authenticate(login, password, GROUP);
         call.enqueue(new Callback<AuthResponse>() {
