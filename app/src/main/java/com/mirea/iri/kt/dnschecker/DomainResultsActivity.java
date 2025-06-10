@@ -4,7 +4,6 @@ package com.mirea.iri.kt.dnschecker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,11 +30,6 @@ public class DomainResultsActivity extends AppCompatActivity {
         progressBar = binding.progressBar;
 
         String query = getIntent().getStringExtra("query");
-        if (query == null || query.isEmpty()) {
-            Toast.makeText(this, "Ошибка: пустой запрос", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
-        }
 
         adapter = new DomainAdapter(this, domainItems);
         binding.lvDomains.setAdapter(adapter);
@@ -43,11 +37,6 @@ public class DomainResultsActivity extends AppCompatActivity {
         binding.lvDomains.setVisibility(View.GONE);
 
         searchDomains(query);
-
-        binding.lvDomains.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
-            String url = "http://" + domainItems.get(position).getDomain();
-            startActivity(new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url)));
-        });
 
         binding.btnShare.setOnClickListener(v -> shareDomains());
     }
@@ -91,14 +80,13 @@ public class DomainResultsActivity extends AppCompatActivity {
     }
 
     private void shareDomains() {
-        StringBuilder sb = new StringBuilder();
+        String domainsText = "";
         for (DomainsResponse.Domain domain : domainItems) {
-            sb.append(domain.getDomain()).append("\n");
+            domainsText = domainsText + domain.getDomain() + "\n";
         }
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
-        shareIntent.setType("text/plain");
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)));
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, domainsText);
+        intent.setType("text/plain");
+        startActivity(Intent.createChooser(intent, getString(R.string.share_title)));
     }
 }

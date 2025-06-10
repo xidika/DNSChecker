@@ -1,8 +1,5 @@
 package com.mirea.iri.kt.dnschecker;
 
-
-import androidx.annotation.NonNull;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -68,13 +65,18 @@ public class AuthResponse implements Serializable {
 
     @Override
     public String toString() {
-        return "Ответ сервера:\n" +
-                "Код результата: " + resultCode + "\n" +
-                "Вариант: " + variant + "\n" +
-                "Название приложения:\n" + title + "\n" +
-                "Задание:\n" + task + "\n" + "Дополнительная информация:\n" + data;
-
+        if (data != null) {
+            return "Ответ сервера:\n" +
+                    "Код результата: " + resultCode + "\n" +
+                    "Вариант: " + variant + "\n" +
+                    "Название приложения:\n" + title + "\n" +
+                    "Задание:\n" + task + "\n" + "Дополнительная информация:\n" + data;
+        }else{
+            return "Ответ сервера:\n" +
+                    "Код результата: " + resultCode + "\n" +
+                    "Вариант: " + variant + "\n" +
+                    "Название приложения:\n" + title + "\n" +
+                    "Задание:\n" + task;
+        }
     }
-
-
 }

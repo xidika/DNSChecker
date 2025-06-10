@@ -3,10 +3,8 @@ package com.mirea.iri.kt.dnschecker;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mirea.iri.kt.dnschecker.databinding.ActivityDomainSearchBinding;
 
 public class DomainSearchActivity extends AppCompatActivity {
@@ -39,7 +37,7 @@ public class DomainSearchActivity extends AppCompatActivity {
 
     private void showAuthResponse() {
         new AlertDialog.Builder(this)
-                .setTitle("Ответ сервера")
+                .setTitle(R.string.server_response)
                 .setMessage(authResponse.toString())
                 .setPositiveButton("OK", null)
                 .show();

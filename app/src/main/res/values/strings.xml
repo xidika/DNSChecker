@@ -9,10 +9,13 @@
     <string name="share_button">Поделиться</string>
     <string name="share_title">Поделиться списком доменов</string>
     <string name="fill_all_fields">Заполните все поля</string>
-    <string name="auth_failed">Ошибка авторизации</string>
+    <string name="auth_failed">Проверьте правильность логина и пароля</string>
     <string name="auth_error">Ошибка при авторизации</string>
     <string name="network_error">Сетевая ошибка</string>
     <string name="enter_query">Введите запрос</string>
     <string name="search_failed">Ошибка поиска</string>
     <string name="no_domains_found">Домены не найдены</string>
+    <string name="ribo_02_23">RIBO-02-23</string>
+    <string name="server_response">Ответ сервера</string>
+    <string name="share_domain">Поделиться доменом</string>
 </resources>
